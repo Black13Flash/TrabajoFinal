@@ -198,12 +198,6 @@ public class ventanaInsertar extends javax.swing.JInternalFrame {
         }else{
             btnLimpiar.setEnabled(false);
         }
-        
-        if(txtMarca.getText().length() > 0){
-            btnLimpiar.setEnabled(true);
-        }else{
-            btnLimpiar.setEnabled(false);
-        }
     }//GEN-LAST:event_txtPatenteKeyReleased
 
 
