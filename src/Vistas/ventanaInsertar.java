@@ -19,7 +19,12 @@ public class ventanaInsertar extends javax.swing.JInternalFrame {
      */
     public ventanaInsertar() {
         initComponents();
+        
+        btnLimpiar.setEnabled(false);
+        
     }
+    
+    // Probando metodos
     
     public void limpiarFormulario(){
         txtPatente.setText("");
@@ -31,7 +36,7 @@ public class ventanaInsertar extends javax.swing.JInternalFrame {
         
         txtPatente.requestFocus();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -61,6 +66,12 @@ public class ventanaInsertar extends javax.swing.JInternalFrame {
         setTitle("INSERTAR");
 
         jLabel1.setText("Patente: ");
+
+        txtPatente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPatenteKeyReleased(evt);
+            }
+        });
 
         jLabel2.setText("Marca: ");
 
@@ -178,6 +189,22 @@ public class ventanaInsertar extends javax.swing.JInternalFrame {
         JOptionPane.showMessageDialog(rootPane, retorno);
         
     }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void txtPatenteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPatenteKeyReleased
+        // TODO add your handling code here:
+        
+        if(txtPatente.getText().length() > 0){
+            btnLimpiar.setEnabled(true);
+        }else{
+            btnLimpiar.setEnabled(false);
+        }
+        
+        if(txtMarca.getText().length() > 0){
+            btnLimpiar.setEnabled(true);
+        }else{
+            btnLimpiar.setEnabled(false);
+        }
+    }//GEN-LAST:event_txtPatenteKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
