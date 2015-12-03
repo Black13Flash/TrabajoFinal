@@ -20,6 +20,17 @@ public class ventanaInsertar extends javax.swing.JInternalFrame {
     public ventanaInsertar() {
         initComponents();
     }
+    
+    public void limpiarFormulario(){
+        txtPatente.setText("");
+        txtMarca.setText("");
+        txtModelo.setText("");
+        txtColor.setText("");
+        txtAno.setText("");
+        txtPrecio.setText("");
+        
+        txtPatente.requestFocus();
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -44,6 +55,7 @@ public class ventanaInsertar extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         txtPrecio = new javax.swing.JTextField();
         btnAgregar = new javax.swing.JButton();
+        btnLimpiar = new javax.swing.JButton();
 
         setClosable(true);
         setTitle("INSERTAR");
@@ -67,6 +79,8 @@ public class ventanaInsertar extends javax.swing.JInternalFrame {
             }
         });
 
+        btnLimpiar.setText("Limpiar");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -74,7 +88,10 @@ public class ventanaInsertar extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnAgregar)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnLimpiar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnAgregar))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,7 +143,9 @@ public class ventanaInsertar extends javax.swing.JInternalFrame {
                     .addComponent(jLabel6)
                     .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btnAgregar)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAgregar)
+                    .addComponent(btnLimpiar))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
 
@@ -163,6 +182,7 @@ public class ventanaInsertar extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
+    private javax.swing.JButton btnLimpiar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
