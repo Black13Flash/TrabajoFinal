@@ -91,6 +91,11 @@ public class ventanaInsertar extends javax.swing.JInternalFrame {
         });
 
         btnLimpiar.setText("Limpiar");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -199,6 +204,13 @@ public class ventanaInsertar extends javax.swing.JInternalFrame {
             btnLimpiar.setEnabled(false);
         }
     }//GEN-LAST:event_txtPatenteKeyReleased
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        // TODO add your handling code here:
+        
+        limpiarFormulario();
+        txtPatente.requestFocus();
+    }//GEN-LAST:event_btnLimpiarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
