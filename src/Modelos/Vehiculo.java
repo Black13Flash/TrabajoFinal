@@ -9,6 +9,7 @@ package Modelos;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -18,6 +19,10 @@ import java.util.logging.Logger;
  */
 public class Vehiculo {
     private String Patente; // Primary KEY
+
+    private Vehiculo(String Patente, String Marca, String Modelo, String Color, int Ano, int Precio) {
+        
+    }
 
     public String getPatente() {
         return Patente;
@@ -159,6 +164,47 @@ public class Vehiculo {
             con.cierraConexion();
         }
         return ve;
+    }
+    
+    // BUSCA TODOS
+    
+    public ArrayList<Vehiculo> buscarTodos(){
+        
+        String query="SELECT * FROM Vehiculo";
+        
+        Conexion con = new Conexion();
+        
+        ArrayList<Vehiculo> vei=null;
+        
+        try {
+            state = con.usaConexion().createStatement();
+            res = state.executeQuery(query);
+            
+            vei = new ArrayList<>();
+            
+            while(res.next()){
+                
+                vei.add(
+                        new Vehiculo (res.getString("Patente"),
+                                      res.getString("Marca"),
+                                      res.getString("Modelo"),
+                                      res.getString("Color"),
+                                      res.getInt("Ano"),
+                                      res.getInt("Precio")
+                                     )
+                      );
+                
+            }
+            
+            return vei;
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Vehiculo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally{
+            con.cierraConexion();
+        }
+        return vei;
     }
 
 }

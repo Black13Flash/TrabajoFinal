@@ -84,6 +84,11 @@ public class myFrame extends javax.swing.JFrame {
         jMenu3.add(jMenuItem4);
 
         jMenuItem5.setText("Mostrar Todos");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem5);
 
         jMenuBar1.add(jMenu3);
@@ -131,6 +136,20 @@ public class myFrame extends javax.swing.JFrame {
         
     }//GEN-LAST:event_itemInsertarActionPerformed
 
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        // MOSTRAR TODO
+        
+        if (venMostrarTodo == null || venMostrarTodo.isClosed()) {
+            venMostrarTodo = new ventanaMostrarTodo();
+            
+            myPanel.add(venMostrarTodo);
+            venMostrarTodo.show();
+        }else{
+            venMostrarTodo.show();
+        }
+        
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -167,6 +186,7 @@ public class myFrame extends javax.swing.JFrame {
     }
     
     ventanaInsertar venInsertar;
+    ventanaMostrarTodo venMostrarTodo;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem itemInsertar;
