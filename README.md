@@ -17,6 +17,6 @@ Proyecto : Taller de Programación 1
 
 7: Crear Internal Frame "BUSCA/PATENTE"
 
-8: Crear Internal Frame "MOSTRAR TODOS"
+8: Crear Internal Frame "MOSTRAR TODOS" <b>[OK]</b>
 
 9: Programar Item Menu "SALIR"
