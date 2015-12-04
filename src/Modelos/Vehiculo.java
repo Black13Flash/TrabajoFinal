@@ -184,15 +184,15 @@ public class Vehiculo {
             
             while(res.next()){
                 
-                vei.add(
-                        new Vehiculo (res.getString("Patente"),
-                                      res.getString("Marca"),
-                                      res.getString("Modelo"),
-                                      res.getString("Color"),
-                                      res.getInt("Ano"),
-                                      res.getInt("Precio")
-                                     )
-                      );
+                Vehiculo objTemp = new Vehiculo();
+                objTemp.setPatente(res.getString("Patente"));
+                objTemp.setMarca(res.getString("Marca"));
+                objTemp.setModelo(res.getString("Modelo"));
+                objTemp.setColor(res.getString("Color"));
+                objTemp.setAno(res.getInt("Ano"));
+                objTemp.setPrecio(res.getInt("Precio"));
+                
+                vei.add(objTemp);
                 
             }
             

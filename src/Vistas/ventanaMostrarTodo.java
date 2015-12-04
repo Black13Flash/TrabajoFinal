@@ -32,6 +32,7 @@ public class ventanaMostrarTodo extends javax.swing.JInternalFrame {
         modelo.addColumn("Precio");
         
         Tabla.setModel(modelo);
+        
     }
 
     /**
@@ -88,8 +89,8 @@ public class ventanaMostrarTodo extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(btnMostrarTodo)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(138, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -105,8 +106,8 @@ public class ventanaMostrarTodo extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -117,6 +118,20 @@ public class ventanaMostrarTodo extends javax.swing.JInternalFrame {
         
         Vehiculo v = new Vehiculo();
         ArrayList<Vehiculo> vehiculos = v.buscarTodos();
+        
+        // Limpiando la tabla
+        
+        int numFilas = Tabla.getRowCount();
+        
+        System.out.println(numFilas);
+        
+        for (int i = 0; i < numFilas; i++) {
+            try{
+                modelo.removeRow(0);
+            }catch(java.lang.ArrayIndexOutOfBoundsException ex){}
+        }
+        
+        // Llenando la tabla
         
         if (vehiculos==null) {
             JOptionPane.showMessageDialog(rootPane, "No hay Vehiculos");
