@@ -75,13 +75,43 @@ public class ventanaInsertar extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Marca: ");
 
+        txtMarca.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtMarcaKeyReleased(evt);
+            }
+        });
+
         jLabel3.setText("Modelo: ");
+
+        txtModelo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtModeloKeyReleased(evt);
+            }
+        });
 
         jLabel4.setText("Color: ");
 
+        txtColor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtColorKeyReleased(evt);
+            }
+        });
+
         jLabel5.setText("Año: ");
 
+        txtAno.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtAnoKeyReleased(evt);
+            }
+        });
+
         jLabel6.setText("Precio: ");
+
+        txtPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPrecioKeyReleased(evt);
+            }
+        });
 
         btnAgregar.setText("Agregar");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -210,7 +240,58 @@ public class ventanaInsertar extends javax.swing.JInternalFrame {
         
         limpiarFormulario();
         txtPatente.requestFocus();
+        btnLimpiar.setEnabled(false);
     }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void txtMarcaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMarcaKeyReleased
+        // TODO add your handling code here:
+        
+        if(txtMarca.getText().length() > 0){
+            btnLimpiar.setEnabled(true);
+        }else{
+            btnLimpiar.setEnabled(false);
+        }
+    }//GEN-LAST:event_txtMarcaKeyReleased
+
+    private void txtModeloKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtModeloKeyReleased
+        // TODO add your handling code here:
+        
+        if(txtModelo.getText().length() > 0){
+            btnLimpiar.setEnabled(true);
+        }else{
+            btnLimpiar.setEnabled(false);
+        }
+    }//GEN-LAST:event_txtModeloKeyReleased
+
+    private void txtColorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtColorKeyReleased
+        // TODO add your handling code here:
+        
+        if(txtColor.getText().length() > 0){
+            btnLimpiar.setEnabled(true);
+        }else{
+            btnLimpiar.setEnabled(false);
+        }
+    }//GEN-LAST:event_txtColorKeyReleased
+
+    private void txtAnoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAnoKeyReleased
+        // TODO add your handling code here:
+        
+        if(txtAno.getText().length() > 0){
+            btnLimpiar.setEnabled(true);
+        }else{
+            btnLimpiar.setEnabled(false);
+        }
+    }//GEN-LAST:event_txtAnoKeyReleased
+
+    private void txtPrecioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioKeyReleased
+        // TODO add your handling code here:
+        
+        if(txtPrecio.getText().length() > 0){
+            btnLimpiar.setEnabled(true);
+        }else{
+            btnLimpiar.setEnabled(false);
+        }
+    }//GEN-LAST:event_txtPrecioKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

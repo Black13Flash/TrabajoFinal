@@ -49,11 +49,11 @@ public class myFrame extends javax.swing.JFrame {
         myPanel.setLayout(myPanelLayout);
         myPanelLayout.setHorizontalGroup(
             myPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 972, Short.MAX_VALUE)
+            .addGap(0, 1164, Short.MAX_VALUE)
         );
         myPanelLayout.setVerticalGroup(
             myPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 544, Short.MAX_VALUE)
+            .addGap(0, 731, Short.MAX_VALUE)
         );
 
         jMenu1.setText("Insertar/Eliminar");
