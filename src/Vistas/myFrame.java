@@ -34,7 +34,7 @@ public class myFrame extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         itemInsertar = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        menuBorrar = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
@@ -66,8 +66,13 @@ public class myFrame extends javax.swing.JFrame {
         });
         jMenu1.add(itemInsertar);
 
-        jMenuItem2.setText("Borrar");
-        jMenu1.add(jMenuItem2);
+        menuBorrar.setText("Borrar");
+        menuBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuBorrarActionPerformed(evt);
+            }
+        });
+        jMenu1.add(menuBorrar);
 
         jMenuBar1.add(jMenu1);
 
@@ -150,6 +155,19 @@ public class myFrame extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
+    private void menuBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuBorrarActionPerformed
+       //BORRAR
+        
+        if (venBorrar == null || venBorrar.isClosed()) {
+            venBorrar = new ventanaBorrar();
+            
+            myPanel.add(venBorrar);
+            venBorrar.show();
+        }else{
+            venBorrar.show();
+        }
+    }//GEN-LAST:event_menuBorrarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -187,6 +205,7 @@ public class myFrame extends javax.swing.JFrame {
     
     ventanaInsertar venInsertar;
     ventanaMostrarTodo venMostrarTodo;
+    ventanaBorrar venBorrar;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem itemInsertar;
@@ -195,11 +214,11 @@ public class myFrame extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem menuBorrar;
     private javax.swing.JPanel myPanel;
     // End of variables declaration//GEN-END:variables
 }
