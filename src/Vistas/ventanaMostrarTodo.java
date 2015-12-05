@@ -5,9 +5,7 @@
  */
 package Vistas;
 
-import Modelos.Vehiculo;
-import java.util.ArrayList;
-import javax.swing.JOptionPane;
+import Controladores.controladorVehiculo;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -51,7 +49,6 @@ public class ventanaMostrarTodo extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabla = new javax.swing.JTable();
         lblAviso = new javax.swing.JLabel();
-        btnTEST = new javax.swing.JButton();
 
         setClosable(true);
         setTitle("Mostrar Todo");
@@ -76,8 +73,6 @@ public class ventanaMostrarTodo extends javax.swing.JInternalFrame {
         lblAviso.setFont(new java.awt.Font("Courier", 0, 12)); // NOI18N
         lblAviso.setText("jLabel1");
 
-        btnTEST.setText("TEST");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -92,9 +87,7 @@ public class ventanaMostrarTodo extends javax.swing.JInternalFrame {
                         .addComponent(btnMostrarTodo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblAviso, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnTEST)
-                        .addGap(97, 97, 97))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,8 +95,7 @@ public class ventanaMostrarTodo extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnMostrarTodo)
-                    .addComponent(lblAviso)
-                    .addComponent(btnTEST))
+                    .addComponent(lblAviso))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -132,42 +124,16 @@ public class ventanaMostrarTodo extends javax.swing.JInternalFrame {
     private void btnMostrarTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarTodoActionPerformed
         // MOSTRAR TODOS
         
-        Vehiculo v = new Vehiculo();
-        ArrayList<Vehiculo> vehiculos = v.buscarTodos();
+        controladorVehiculo cv=new controladorVehiculo();
         
-        // Limpiando la tabla
+        DefaultTableModel modeloTest=new DefaultTableModel();
         
-        int numFilas = Tabla.getRowCount();
+        modeloTest = cv.modeloTabla();
+            
+        Tabla.setModel(modeloTest);
         
-        for (int i = 0; i < numFilas; i++) {
-            try{
-                modelo.removeRow(0);
-            }catch(java.lang.ArrayIndexOutOfBoundsException ex){}
-        }
-        
-        // Llenando la tabla
-        
-        if (vehiculos==null) {
-            JOptionPane.showMessageDialog(rootPane, "No hay Vehiculos");
-        }else{
-            for (int i = 0; i < vehiculos.size(); i++) {
-                
-                String datos[]=new String[6];
-                
-                datos[0]= vehiculos.get(i).getPatente();
-                datos[1]= vehiculos.get(i).getMarca();
-                datos[2]= vehiculos.get(i).getModelo();
-                datos[3]= vehiculos.get(i).getColor();
-                datos[4]= ""+vehiculos.get(i).getAno();
-                datos[5]= ""+vehiculos.get(i).getPrecio();
-                
-                modelo.addRow(datos);
-                
-                lblAviso.setText("Se encontraron "+Tabla.getRowCount()+" registros");
-                lblAviso.setVisible(true);
-                
-            }
-        }
+        lblAviso.setText("Se encontraron "+Tabla.getRowCount()+" registros");
+        lblAviso.setVisible(true);
         
     }//GEN-LAST:event_btnMostrarTodoActionPerformed
     
@@ -177,7 +143,6 @@ public class ventanaMostrarTodo extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable Tabla;
     private javax.swing.JButton btnMostrarTodo;
-    private javax.swing.JButton btnTEST;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAviso;

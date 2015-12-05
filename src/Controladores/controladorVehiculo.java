@@ -6,6 +6,8 @@
 
 package Controladores;
 import Modelos.Vehiculo;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -79,5 +81,43 @@ public class controladorVehiculo {
             
         }
     }
+    
+    public DefaultTableModel modeloTabla(){
+        
+        DefaultTableModel modelo = new DefaultTableModel();
+        
+        modelo.addColumn("Patente");
+        modelo.addColumn("Marca");
+        modelo.addColumn("Modelo");
+        modelo.addColumn("Color");
+        modelo.addColumn("Año");
+        modelo.addColumn("Precio");
+        
+        Vehiculo v = new Vehiculo();
+        ArrayList<Vehiculo> vehiculos = v.buscarTodos();
+        
+        // Llenando la tabla
+        
+        if (vehiculos==null) {
+            return modelo;
+        }else{
+            for (int i = 0; i < vehiculos.size(); i++) {
+                
+                String datos[]=new String[6];
+                
+                datos[0]= vehiculos.get(i).getPatente();
+                datos[1]= vehiculos.get(i).getMarca();
+                datos[2]= vehiculos.get(i).getModelo();
+                datos[3]= vehiculos.get(i).getColor();
+                datos[4]= ""+vehiculos.get(i).getAno();
+                datos[5]= ""+vehiculos.get(i).getPrecio();
+                
+                modelo.addRow(datos);
+            }
+        }
+        
+        return modelo;
+    }
+    
    
 }
