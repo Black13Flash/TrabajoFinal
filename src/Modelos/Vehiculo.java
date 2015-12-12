@@ -24,6 +24,12 @@ public class Vehiculo {
         
     }
 
+    public Vehiculo(String Patente) {
+        this.Patente = Patente;
+    }
+    
+    
+
     public String getPatente() {
         return Patente;
     }

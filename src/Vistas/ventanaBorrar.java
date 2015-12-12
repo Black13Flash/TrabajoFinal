@@ -5,6 +5,9 @@
  */
 package Vistas;
 
+import Modelos.Vehiculo;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author G
@@ -33,12 +36,18 @@ public class ventanaBorrar extends javax.swing.JInternalFrame {
         btnEliminar = new javax.swing.JButton();
 
         setClosable(true);
+        setTitle("Borrar");
 
         lblPatente.setText("Patente");
 
         lblEliminar.setText("Ingrese patente a eliminar");
 
         btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -75,11 +84,36 @@ public class ventanaBorrar extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        String patente= txtPatente.getText();
+        if(patente.equals("")||patente==null)
+        {
+            JOptionPane.showMessageDialog(this, "Ingrese una patente");
+        }
+        else
+        {
+        Vehiculo v= new Vehiculo(patente);
+        Vehiculo ve= v.buscaUno(v);
+        
+        if(ve==null)
+        {
+            JOptionPane.showMessageDialog(this, "Vehiculo no encontrado");
+        }
+        else
+        {
+            ventanaConfirmarBorrar vcb=new ventanaConfirmarBorrar();
+            vcb.setVisible(true);
+            
+        }
+        }
+        
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEliminar;
     private javax.swing.JLabel lblEliminar;
     private javax.swing.JLabel lblPatente;
-    private javax.swing.JTextField txtPatente;
+    public static javax.swing.JTextField txtPatente;
     // End of variables declaration//GEN-END:variables
 }

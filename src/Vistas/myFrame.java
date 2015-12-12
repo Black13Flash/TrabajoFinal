@@ -38,7 +38,7 @@ public class myFrame extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        mnuBusca = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
@@ -85,8 +85,13 @@ public class myFrame extends javax.swing.JFrame {
 
         jMenu3.setText("Búsqueda");
 
-        jMenuItem4.setText("Busca / Patente");
-        jMenu3.add(jMenuItem4);
+        mnuBusca.setText("Busca / Patente");
+        mnuBusca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuBuscaActionPerformed(evt);
+            }
+        });
+        jMenu3.add(mnuBusca);
 
         jMenuItem5.setText("Mostrar Todos");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
@@ -101,6 +106,11 @@ public class myFrame extends javax.swing.JFrame {
         jMenu4.setText("Edición");
 
         jMenuItem6.setText("Salir");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenuItem6);
 
         jMenuBar1.add(jMenu4);
@@ -166,7 +176,23 @@ public class myFrame extends javax.swing.JFrame {
         }else{
             venBorrar.show();
         }
+        
     }//GEN-LAST:event_menuBorrarActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+       this.dispose();
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void mnuBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuBuscaActionPerformed
+        if (MosUn == null || MosUn.isClosed()) {
+            MosUn = new MostrarUno();
+            
+            myPanel.add(MosUn);
+            MosUn.show();
+        }else{
+            MosUn.show();
+        }
+    }//GEN-LAST:event_mnuBuscaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -206,7 +232,7 @@ public class myFrame extends javax.swing.JFrame {
     ventanaInsertar venInsertar;
     ventanaMostrarTodo venMostrarTodo;
     ventanaBorrar venBorrar;
-
+    MostrarUno MosUn;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem itemInsertar;
     private javax.swing.JMenu jMenu1;
@@ -215,10 +241,10 @@ public class myFrame extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem menuBorrar;
-    private javax.swing.JPanel myPanel;
+    private javax.swing.JMenuItem mnuBusca;
+    public static javax.swing.JPanel myPanel;
     // End of variables declaration//GEN-END:variables
 }

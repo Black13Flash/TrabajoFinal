@@ -12,24 +12,14 @@ import javax.swing.JOptionPane;
  *
  * @author G
  */
-public class ventanaConfirmarBorrar extends javax.swing.JFrame {
+public class MostrarUno extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form ventanaConfirmarBorrar
+     * Creates new form MostrarUno
      */
-    public ventanaConfirmarBorrar() {
+    public MostrarUno() {
         initComponents();
-        setLocationRelativeTo(null);
-        String patente = ventanaBorrar.txtPatente.getText();
-        Vehiculo v=new Vehiculo(patente);
-        Vehiculo ve=v.buscaUno(v);
-        lblCPatente.setText(ve.getPatente());
-        lblCMarca.setText(ve.getMarca());
-        lblCModelo.setText(ve.getModelo());
-        lblCColor.setText(ve.getColor());
-        lblCAno.setText(String.valueOf(ve.getAno()));
-        lblCPrecio.setText(String.valueOf(ve.getPrecio()));
-       }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -40,6 +30,8 @@ public class ventanaConfirmarBorrar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblTitulo = new javax.swing.JLabel();
+        txtPatente = new javax.swing.JTextField();
         lblPatente = new javax.swing.JLabel();
         lblMarca = new javax.swing.JLabel();
         lblModelo = new javax.swing.JLabel();
@@ -52,11 +44,13 @@ public class ventanaConfirmarBorrar extends javax.swing.JFrame {
         lblCColor = new javax.swing.JLabel();
         lblCAno = new javax.swing.JLabel();
         lblCPrecio = new javax.swing.JLabel();
-        btnSi = new javax.swing.JButton();
-        btnNo = new javax.swing.JButton();
-        lblDeseo = new javax.swing.JLabel();
+        btnSalir = new javax.swing.JButton();
+        btnAceptar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setClosable(true);
+        setTitle("Buscar Vehiculo");
+
+        lblTitulo.setText("Ingrese Patente a buscar:");
 
         lblPatente.setText("Patente:");
 
@@ -82,61 +76,61 @@ public class ventanaConfirmarBorrar extends javax.swing.JFrame {
 
         lblCPrecio.setText("           ");
 
-        btnSi.setText("Si");
-        btnSi.addActionListener(new java.awt.event.ActionListener() {
+        btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSiActionPerformed(evt);
+                btnSalirActionPerformed(evt);
             }
         });
 
-        btnNo.setText("No");
-        btnNo.addActionListener(new java.awt.event.ActionListener() {
+        btnAceptar.setText("Aceptar");
+        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNoActionPerformed(evt);
+                btnAceptarActionPerformed(evt);
             }
         });
-
-        lblDeseo.setText("Desea eliminar?");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblPatente)
-                    .addComponent(lblMarca)
-                    .addComponent(lblModelo)
-                    .addComponent(lblColor)
-                    .addComponent(lblAno)
-                    .addComponent(lblPrecio))
-                .addGap(79, 79, 79)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblCPrecio)
-                    .addComponent(lblCAno)
-                    .addComponent(lblCColor)
-                    .addComponent(lblCModelo)
-                    .addComponent(lblCMarca)
-                    .addComponent(lblCPatente))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(69, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnSi)
-                        .addGap(62, 62, 62)
-                        .addComponent(btnNo))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(lblDeseo)
-                        .addGap(39, 39, 39)))
-                .addGap(65, 65, 65))
+                        .addGap(111, 111, 111)
+                        .addComponent(lblTitulo))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(93, 93, 93)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblPatente)
+                            .addComponent(lblMarca)
+                            .addComponent(lblModelo)
+                            .addComponent(lblColor)
+                            .addComponent(lblAno)
+                            .addComponent(lblPrecio)
+                            .addComponent(btnAceptar))
+                        .addGap(53, 53, 53)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblCPrecio)
+                            .addComponent(lblCAno)
+                            .addComponent(lblCColor)
+                            .addComponent(lblCModelo)
+                            .addComponent(lblCMarca)
+                            .addComponent(lblCPatente)
+                            .addComponent(btnSalir)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(125, 125, 125)
+                        .addComponent(txtPatente, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(102, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
+                .addContainerGap()
+                .addComponent(lblTitulo)
+                .addGap(18, 18, 18)
+                .addComponent(txtPatente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPatente)
                     .addComponent(lblCPatente))
@@ -160,34 +154,52 @@ public class ventanaConfirmarBorrar extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPrecio)
                     .addComponent(lblCPrecio))
-                .addGap(18, 18, 18)
-                .addComponent(lblDeseo)
-                .addGap(8, 8, 8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSi)
-                    .addComponent(btnNo))
-                .addContainerGap(19, Short.MAX_VALUE))
+                    .addComponent(btnSalir)
+                    .addComponent(btnAceptar))
+                .addGap(33, 33, 33))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNoActionPerformed
-       this.dispose();
-    }//GEN-LAST:event_btnNoActionPerformed
+    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
+        String patente = txtPatente.getText();
+        if(patente.equals("")||patente==null)
+        {
+            JOptionPane.showMessageDialog(this, "Ingrese patente");
+        }
+        else
+        {
+        Vehiculo v=new Vehiculo(patente);
+        Vehiculo ve=v.buscaUno(v);
+        if(ve==null)
+        {
+            JOptionPane.showMessageDialog(this, "Vehiculo no encontrado");
+        }
+        else
+        {
+        lblCPatente.setText(ve.getPatente());
+        lblCMarca.setText(ve.getMarca());
+        lblCModelo.setText(ve.getModelo());
+        lblCColor.setText(ve.getColor());
+        lblCAno.setText(String.valueOf(ve.getAno()));
+        lblCPrecio.setText(String.valueOf(ve.getPrecio()));
+        }
+        }
+        
+        
+    }//GEN-LAST:event_btnAceptarActionPerformed
 
-    private void btnSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiActionPerformed
-       String patente = ventanaBorrar.txtPatente.getText();
-       Vehiculo v=new Vehiculo(patente);
-       v.eliminarVehiculo(v);
-       JOptionPane.showMessageDialog(this, "Eliminado");
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
        this.dispose();
-    }//GEN-LAST:event_btnSiActionPerformed
+    }//GEN-LAST:event_btnSalirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnNo;
-    private javax.swing.JButton btnSi;
+    private javax.swing.JButton btnAceptar;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JLabel lblAno;
     private javax.swing.JLabel lblCAno;
     private javax.swing.JLabel lblCColor;
@@ -196,10 +208,11 @@ public class ventanaConfirmarBorrar extends javax.swing.JFrame {
     private javax.swing.JLabel lblCPatente;
     private javax.swing.JLabel lblCPrecio;
     private javax.swing.JLabel lblColor;
-    private javax.swing.JLabel lblDeseo;
     private javax.swing.JLabel lblMarca;
     private javax.swing.JLabel lblModelo;
     private javax.swing.JLabel lblPatente;
     private javax.swing.JLabel lblPrecio;
+    private javax.swing.JLabel lblTitulo;
+    private javax.swing.JTextField txtPatente;
     // End of variables declaration//GEN-END:variables
 }
