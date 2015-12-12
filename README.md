@@ -11,12 +11,12 @@ Proyecto : Taller de Programación 1
 
 4: Crear Internal Frame "INSERTAR" <b>[OK]</b>
 
-5: Crear Internal Frame "BORRAR"
+5: Crear Internal Frame "BORRAR"<b>[OK]</b>
 
 6: Crear Internal Frame "MODIFICA"
 
-7: Crear Internal Frame "BUSCA/PATENTE"
+7: Crear Internal Frame "BUSCA/PATENTE"<b>[OK]</b>
 
 8: Crear Internal Frame "MOSTRAR TODOS" <b>[OK]</b>
 
-9: Programar Item Menu "SALIR"
+9: Programar Item Menu "SALIR"<b>[OK]</b>
