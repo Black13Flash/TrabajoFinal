@@ -119,5 +119,69 @@ public class controladorVehiculo {
         return modelo;
     }
     
+    public String modificarRegistro(String Patente, String Marca, String Modelo, String Color, String an, String pr){
+        
+        Vehiculo v = new Vehiculo();
+        
+        int Ano;
+        int Precio;
+        
+        if (Marca == null   || Marca.equals("") ||
+            Modelo == null  || Modelo.equals("") ||
+            Color == null   || Color.equals("") ||
+            an == null      || an.equals("") ||
+            pr == null      || pr.equals("")
+           ) {
+            return "No puedes dejar campos en blanco";
+        }else{
+                v.setPatente(Patente);
+                v.setMarca(Marca);
+                v.setModelo(Modelo);
+                v.setColor(Color);
+            try{
+                Ano = Integer.parseInt(an);
+                v.setAno(Ano);
+                
+            }catch(java.lang.NumberFormatException Ex){
+                return "Error al ingresar el Año";
+            }
+            try{
+                Precio = Integer.parseInt(pr);
+                v.setPrecio(Precio);
+            }catch(java.lang.NumberFormatException Ex){
+                return "Error al ingresar el Precio";
+            }
+            
+            if (Ano < 1950 || Ano > 2015) {
+                return "El año del vehiculo no corresponde (1951 a 2015)";
+            }else{
+                
+                if (Precio < 500000 || Precio > 50000000) {
+                    return "El Precio del vehiculo no es compatible (500K a 50M)";
+                }else{
+                    
+                    //AHORA VALIDAR PREXISTENCIA
+                    
+                    Vehiculo ve = new Vehiculo();
+                    ve = v.buscaUno(v);
+                    
+                    if(ve==null){
+                        return "El vehiculo no se encuentra ahora";
+                    }else{
+                        if(v.modificaVehiculo(v)){
+                            return "Modificación exitosa";
+                        }else{
+                            return "Error al Modificar datos de Vehiculo";
+                        }
+                        
+                    }
+                    
+                }
+                
+            }
+        }
+    }
+    
+    
    
 }

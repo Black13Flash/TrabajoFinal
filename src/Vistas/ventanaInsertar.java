@@ -37,6 +37,28 @@ public class ventanaInsertar extends javax.swing.JInternalFrame {
         txtPatente.requestFocus();
     }
     
+    public void focoPatente(){
+        txtPatente.requestFocus();
+    }
+    
+    public boolean isLimpio(){
+        
+        int patente = txtPatente.getText().length();
+        int marca   = txtMarca.getText().length();
+        int modelo  = txtModelo.getText().length();
+        int color   = txtColor.getText().length();
+        int ano     = txtAno.getText().length();
+        int precio  = txtPrecio.getText().length();
+        
+        int suma = patente+marca+modelo+color+ano+precio;
+        
+        if (suma>0) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -63,7 +85,7 @@ public class ventanaInsertar extends javax.swing.JInternalFrame {
         btnLimpiar = new javax.swing.JButton();
 
         setClosable(true);
-        setTitle("INSERTAR");
+        setTitle("Agregar Vehiculos");
 
         jLabel1.setText("Patente: ");
 
@@ -228,7 +250,7 @@ public class ventanaInsertar extends javax.swing.JInternalFrame {
     private void txtPatenteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPatenteKeyReleased
         // TODO add your handling code here:
         
-        if(txtPatente.getText().length() > 0){
+        if(isLimpio()){
             btnLimpiar.setEnabled(true);
         }else{
             btnLimpiar.setEnabled(false);
@@ -246,7 +268,7 @@ public class ventanaInsertar extends javax.swing.JInternalFrame {
     private void txtMarcaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMarcaKeyReleased
         // TODO add your handling code here:
         
-        if(txtMarca.getText().length() > 0){
+        if(isLimpio()){
             btnLimpiar.setEnabled(true);
         }else{
             btnLimpiar.setEnabled(false);
@@ -256,7 +278,7 @@ public class ventanaInsertar extends javax.swing.JInternalFrame {
     private void txtModeloKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtModeloKeyReleased
         // TODO add your handling code here:
         
-        if(txtModelo.getText().length() > 0){
+        if(isLimpio()){
             btnLimpiar.setEnabled(true);
         }else{
             btnLimpiar.setEnabled(false);
@@ -266,7 +288,7 @@ public class ventanaInsertar extends javax.swing.JInternalFrame {
     private void txtColorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtColorKeyReleased
         // TODO add your handling code here:
         
-        if(txtColor.getText().length() > 0){
+        if(isLimpio()){
             btnLimpiar.setEnabled(true);
         }else{
             btnLimpiar.setEnabled(false);
@@ -276,7 +298,7 @@ public class ventanaInsertar extends javax.swing.JInternalFrame {
     private void txtAnoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAnoKeyReleased
         // TODO add your handling code here:
         
-        if(txtAno.getText().length() > 0){
+        if(isLimpio()){
             btnLimpiar.setEnabled(true);
         }else{
             btnLimpiar.setEnabled(false);
@@ -286,7 +308,7 @@ public class ventanaInsertar extends javax.swing.JInternalFrame {
     private void txtPrecioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioKeyReleased
         // TODO add your handling code here:
         
-        if(txtPrecio.getText().length() > 0){
+        if(isLimpio()){
             btnLimpiar.setEnabled(true);
         }else{
             btnLimpiar.setEnabled(false);

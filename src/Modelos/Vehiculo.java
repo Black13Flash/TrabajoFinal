@@ -212,5 +212,28 @@ public class Vehiculo {
         }
         return vei;
     }
+    
+    public boolean modificaVehiculo(Vehiculo v){
+        
+        String query="UPDATE Vehiculo SET Marca='"+v.getMarca()+"' , "
+                + "Modelo='"+v.getModelo()+"' , Color='"+v.getColor()+"' , "
+                + "Ano='"+v.getAno()+"' , Precio='"+v.getPrecio()+"' "
+                + "WHERE Patente='"+v.getPatente()+"' ";
+        
+        Conexion con = new Conexion();
+        
+        try {
+            state = con.usaConexion().createStatement();
+            if (state.executeUpdate(query)>0) {
+                return true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Vehiculo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally{
+            con.cierraConexion();
+        }
+        return false;
+    }
 
 }

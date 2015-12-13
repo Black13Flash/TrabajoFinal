@@ -36,7 +36,7 @@ public class myFrame extends javax.swing.JFrame {
         itemInsertar = new javax.swing.JMenuItem();
         menuBorrar = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        menuModificar = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         mnuBusca = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
@@ -53,7 +53,7 @@ public class myFrame extends javax.swing.JFrame {
         );
         myPanelLayout.setVerticalGroup(
             myPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 731, Short.MAX_VALUE)
+            .addGap(0, 676, Short.MAX_VALUE)
         );
 
         jMenu1.setText("Insertar/Eliminar");
@@ -76,10 +76,15 @@ public class myFrame extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Modifica");
+        jMenu2.setText("Modificar");
 
-        jMenuItem3.setText("Modifica");
-        jMenu2.add(jMenuItem3);
+        menuModificar.setText("Modificar");
+        menuModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuModificarActionPerformed(evt);
+            }
+        });
+        jMenu2.add(menuModificar);
 
         jMenuBar1.add(jMenu2);
 
@@ -145,8 +150,10 @@ public class myFrame extends javax.swing.JFrame {
             
             myPanel.add(venInsertar);
             venInsertar.show();
+            venInsertar.focoPatente();
         }else{
             venInsertar.show();
+            venInsertar.focoPatente();
         }
         
     }//GEN-LAST:event_itemInsertarActionPerformed
@@ -194,6 +201,20 @@ public class myFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_mnuBuscaActionPerformed
 
+    private void menuModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuModificarActionPerformed
+        // MODIFICAR
+        
+        if (venModificar == null || venModificar.isClosed()) {
+            venModificar = new ventanaModificar();
+            
+            myPanel.add(venModificar);
+            venModificar.show();
+        }else{
+            venModificar.show();
+        }
+        
+    }//GEN-LAST:event_menuModificarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -233,6 +254,7 @@ public class myFrame extends javax.swing.JFrame {
     ventanaMostrarTodo venMostrarTodo;
     ventanaBorrar venBorrar;
     MostrarUno MosUn;
+    ventanaModificar venModificar;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem itemInsertar;
     private javax.swing.JMenu jMenu1;
@@ -240,10 +262,10 @@ public class myFrame extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem menuBorrar;
+    private javax.swing.JMenuItem menuModificar;
     private javax.swing.JMenuItem mnuBusca;
     public static javax.swing.JPanel myPanel;
     // End of variables declaration//GEN-END:variables
